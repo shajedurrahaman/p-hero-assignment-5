@@ -1,52 +1,97 @@
-const buyTickets = document.getElementById('buyTickets')
-buyTickets.addEventListener('click', () => {
-	const route = document.getElementById('route')
-})
+const buyTicketsButton = document.getElementById("buyTickets");
 
-const allButton = document.getElementsByClassName('btn')
+// Add a click event listener to the button
+buyTicketsButton.addEventListener("click", function () {
+  // Scroll to the section with id "route"
+  const routeSection = document.getElementById("route");
+  if (routeSection) {
+    routeSection.scrollIntoView({ behavior: "smooth" });
+  }
+});
+const allButtons = document.getElementsByClassName("btn");
 let sum = 0;
+let couponApplied = false;
 
-for (let btn of allButton) {
-	btn.addEventListener('click' , (e) => {
-		sum++;
-		
-		btn.style.backgroundColor = '#1DD100'
-		setInnerText('count', sum)
-		
-		const btnAppend = e.target.allButton
-		const economy = 'economy'
-		const price = 550;
-		const appendItems = document.getElementById('append-items')
+for (let btn of allButtons) {
+  btn.addEventListener("click", (e) => {
+    sum++;
+    btn.style.backgroundColor = "#1DD100";
+    setInnerText("count", sum);
 
-		const li = document.createElement('li')
+    const btnAppend = e.target.innerText;
 
-		const li1 = document.createElement('li')
-		li1.innerText = btnAppend
-		const li2 = document.createElement('li')
-		li2.innerText = economy
-		const li3 = document.createElement('li')
-		li3.innerText = price;
+    const economy = "economy";
+    const price = 550;
+    const appendItems = document.getElementById("append-items");
 
-		li.appendChild(li1)
-		li.appendChild(li2)
-		li.appendChild(li3)
+    const li = document.createElement("li");
 
-		appendItems.appendChild(li)
+    const p = document.createElement("p");
+    p.innerText = btnAppend;
+    const p2 = document.createElement("p");
+    p2.innerText = economy;
+    const p3 = document.createElement("p");
+    p3.innerText = price;
 
-		const totalPrice = document.getElementById('total-price').innerText
-		const convertedPrice = parseInt(totalPrice);
-		document.getElementById('total-price');
-		const priceTotal = convertedPrice + parseInt(price)
+    li.appendChild(p);
+    li.appendChild(p2);
+    li.appendChild(p3);
+    appendItems.appendChild(li);
 
-		const discountPrice = document.getElementById('discount-price').innerText
-		const convertedDiscountPrice = parseInt(discountPrice)
-		document.getElementById('discount-price');
-		const afterDiscount = convertedDiscountPrice + parseInt(price)
+    const leftSeat = document.getElementById("left").innerText;
+    const convertedLeftSeat = parseInt(leftSeat);
 
-		setInnerText('total-price', priceTotal)
-		setInnerText('discount-price', afterDiscount)
-	})
+    if (sum >= 4) {
+      for (let btn of allButtons) {
+        btn.setAttribute("disabled", true);
+      }
+    }
+
+    document.getElementById("left").innerText = convertedLeftSeat - 1;
+
+    const totalPrice = document.getElementById("total-price").innerText;
+    const convertedPrice = parseInt(totalPrice);
+    const priceTotal = convertedPrice + price;
+
+    const discountPrice = document.getElementById("discount-price").innerText;
+    const convertedDiscountPrice = parseInt(discountPrice);
+    const afterDiscount = convertedDiscountPrice + price;
+
+    setInnerText("total-price", priceTotal);
+    setInnerText("discount-price", afterDiscount);
+  });
 }
-function setInnerText(id,value) {
-	document.getElementById(id).innerText = value;
+
+document.getElementById("applyCoupon").addEventListener("click", () => {
+  const couponCode = document.getElementById("couponCode").value;
+  if (
+    sum >= 4 &&
+    !couponApplied &&
+    (couponCode === "NEW15" || couponCode === "Couple 20")
+  ) {
+    couponApplied = true;
+    alert("Coupon code accepted! You've received a discount.");
+    const totalPriceElement = document.getElementById("total-price");
+    const discountedPrice = totalPriceElement.innerText * 0.85;
+    setInnerText("total-price", discountedPrice);
+  } else {
+    alert("Please select at least 4 seat or check your coupon code is correct");
+  }
+  document.getElementById("couponCode").value = "";
+});
+
+function setInnerText(id, value) {
+  document.getElementById(id).innerText = value;
 }
+
+const pName = document.getElementById('pName')
+const pNum = document.getElementById('pNum')
+const gmail = document.getElementById('gmail')
+
+const nextButton = document.getElementById('nextButton')
+nextButton.addEventListener('click',function () {
+	if(pName === "" && pNum === "" && gmail === "") {
+		alert('please fill up the enter field')
+	}
+	alert('Success')
+})

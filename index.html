@@ -132,7 +132,7 @@
 							</div>
 							<div class="bg-[#1DD10026] rounded-xl">
 								<img src="images/seat-green.png" alt="">
-								<h3 id="left"><span>40</span> seats left</h3>
+								<h3><span id="left">40</span> seats left</h3>
 							</div>
 						</div>
 						<div class="mt-10 flex justify-between">
@@ -244,15 +244,17 @@
 							<h3>Price</h3>
 						</div>
 						<hr>
-						<ul id="append-items" class="flex">
-						
-						</ul>
+						<div >
+							<ul	id="append-items" class="flex ">
+
+							</ul>
+						</div>
 						<div class="mt-5 font-bold flex justify-between">
 							<h4>Total Price<h4>
 							<h4>BDT <span id="total-price">0</span></h4>
 						</div>
 						<button id="apply" class="mt-5">
-							<input class="p-2 text-center rounded-xl" type="text" placeholder="have any coupon?"><span class="ml-3 py-2 px-3 rounded-xl font-bold text-white bg-[#1DD100]">Apply</span>
+							<input id="couponCode" class="p-2 text-center rounded-xl" type="text" placeholder="have any coupon?"><span id="applyCoupon" class="ml-3 py-2 px-3 rounded-xl font-bold text-white bg-[#1DD100]">Apply</span>
 						</button>
 						<div class="mt-5 font-bold flex justify-between">
 							<h4>Grand Total<h4>
@@ -261,14 +263,14 @@
 					</div>
 					<div class="mt-5 space-y-4">
 						<p class="font-bold">Passenger Name*</p>
-						<input class="w-full p-2" type="text" placeholder="Enter your name" required>
+						<input id="pName" class="w-full p-2" type="text" placeholder="Enter your name" required>
 						<p class="font-bold">Phone Number*</p>
-						<input class="w-full p-2" type="text" placeholder="Enter Your Phone Number" required>
+						<input id="pNum" class="w-full p-2" type="text" placeholder="Enter Your Phone Number" required>
 						<p class="font-bold">Email ID*</p>
-						<input class="w-full p-2" type="email" placeholder="Enter Your Email ID" required>
+						<input id="gmail" class="w-full p-2" type="email" placeholder="Enter Your Email ID" required>
 					</div>
 					<div>
-						<button class="mt-10 w-full text-white font-bold p-2 rounded-xl bg-[#1DD100]">Next</button>
+						<button id="nextButton" class="mt-10 w-full text-white font-bold p-2 rounded-xl bg-[#1DD100]">Next</button>
 					</div>
 					<div class="mt-5 flex justify-around">
 						<a href="#"><u>Terms and Condition</u></a>
