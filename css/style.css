@@ -24,3 +24,10 @@
 	padding: 4px;
 	border-radius: 8px;
 }
+li {
+	display: flex;
+	justify-content: space-between;
+}
+#nextButton {
+	background-color: gainsboro;
+}
