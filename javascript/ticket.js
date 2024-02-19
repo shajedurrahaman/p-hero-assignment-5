@@ -108,11 +108,10 @@ gmail.addEventListener("input", function () {
 
 nextButton.addEventListener("click", function () {
   if (checkInputs() == true) {
-    alert("Success! All input fields have values.");
+    // alert("Success! All input fields have values.");
     document.getElementById("pName").value = "";
     document.getElementById("pNum").value = "";
     document.getElementById("gmail").value = "";
-    // nextButton.style.backgroundColor ='#1DD100'
   }
 });
 function changeButtonColor() {
@@ -133,6 +132,15 @@ pNum.addEventListener("input", function () {
 gmail.addEventListener("input", function () {
   changeButtonColor();
 });
-
-// Initial check when the page loads
 changeButtonColor();
+
+const popup = document.getElementById('popup') 
+function openPopup() {
+	popup.classList.add('open-popup')
+}
+function closePopup() {
+	popup.classList.remove('open-popup')
+}
+
+
+
